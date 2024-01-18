@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown Timer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPT82oASbRfg5Ul3QCm7akL1QAVdb8ocNbpw&usqp=CAU");
+            background-size: cover;
+            background-position: center;
+            font-family: Arial, sans-serif;
+
+        .countdown-container {
+            text-align: center;
+            color:rgba(230, 13, 187, 0.941)
+        }
+
+        #countdown {
+            font-size: 2em;
+            margin-top: 20px;
+            color:rgba(61, 6, 243, 0.97);
+        }
+    </style>
+</head>
+<body>
+
+<div class="countdown-container">
+    <h1>Wishing you a future filled with love, laughter, and a lifetime of beautiful moments as you journey into wedded bliss.
+
+
+
+
+
+    </h1>
+    <div id="countdown"></div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Set the date we're counting down to
+        const countDownDate = new Date("feb 17, 2024 11:30:00").getTime();
+
+        // Update the countdown every 1 second
+        const x = setInterval(function () {
+            // Get the current date and time
+            const now = new Date().getTime();
+
+            // Calculate the remaining time
+            const distance = countDownDate - now;
+
+            // Calculate days, hours, minutes, and seconds
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Display the countdown
+            document.getElementById("countdown").innerHTML = days + "d :" + hours + "h :" + minutes + "m :" + seconds + "s ";
+
+            // If the countdown is over, display a message
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("countdown").innerHTML = "CONGRATULATIONS";
+            }
+        }, 1000);
+    });
+</script>
+
+</body>
+</html>
